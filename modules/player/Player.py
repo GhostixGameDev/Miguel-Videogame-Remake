@@ -5,7 +5,7 @@ from math import sin
 from modules.resources.config.ConfigLoader import tileSizeScaled, scale
 
 
-def importCharacterAssets(path):
+def importCharacterAssets(path: str):
     animations = {"idle": [], "run": [], "jump": []}
     idleFrames = len(animations["idle"])
     runFrames = len(animations["run"])
