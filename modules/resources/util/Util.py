@@ -8,17 +8,16 @@ from os import walk
 from csv import reader
 
 
-
-
 # from LevelEditor import tileSize
 
-def scaler(element, x: int, y: int):
-    return transform.scale(element, x, y)
+def scaler(element: image, x: int, y: int):
+    return transform.scale(element, (x, y))
 
 
-def scaleList(elements, x: int, y: int):
-    for element in elements:
-        element = scaler(element, x, y)
+def scaleList(elements: list, x: int, y: int):
+    amount = len(elements)
+    for i in range(amount):
+        elements[i] = scaler(elements[i], x, y)
     # We return all the scaled images.
     return elements
 
