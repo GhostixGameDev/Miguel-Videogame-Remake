@@ -283,6 +283,7 @@ class Player(pygame.sprite.Sprite):
     def facingRight(self, newValue):
         self._facingRight = newValue
 
+    # Instance methods
     def animateDust(self):
         # Executes the current particle animation.
         animation = self.dustParticles[self.dustState]
