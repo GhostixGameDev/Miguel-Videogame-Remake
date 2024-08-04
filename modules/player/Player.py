@@ -329,6 +329,7 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.sprite.get_rect(midbottom=self.rect.midbottom)
 
     def getInput(self):
+        #Checks the user keyboard input and makes the respective action per each key.
         keys = pygame.key.get_pressed()
         if keys[pygame.K_d]:
             self.direction.x = 1
