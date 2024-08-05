@@ -51,7 +51,7 @@ def waveValue():
 
 class Player(pygame.sprite.Sprite):
     # Class constructor
-    def __init__(self, position: tuple, surface: pygame.surface, path: str, jumpParticles, updatedLives: int):
+    def __init__(self, position: list, surface: pygame.surface, path: str, jumpParticles, updatedLives: int):
         super().__init__()
         self._lives = updatedLives
         self._animations = importCharacterAssets(path)

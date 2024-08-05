@@ -3,7 +3,7 @@ from ..util.Util import importFolderSprites
 from pygame import sprite
 class Particle(sprite.Sprite):
     #Class constructor
-    def __init__(self, pos: tuple, particle: str):
+    def __init__(self, position: list, particle: str):
         super().__init__()
         self._frameIndex = 0
         self._animationSpeed = 0.5
@@ -15,7 +15,7 @@ class Particle(sprite.Sprite):
                 path = "../../../assets/sprites/particles/dust/land"
         self._frames = importFolderSprites(path)
         self._image = self._frames[self.frameIndex]
-        self._rect = self.image.get_rect(center=pos)
+        self._rect = self.image.get_rect(center=position)
 
     #Getters and setters
     @property

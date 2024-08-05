@@ -5,7 +5,7 @@ from modules.resources.util.Util import scaler
 
 class Node(sprite.Sprite):
     # Class constructor
-    def __init__(self, position: tuple, status: bool, playerSpeed: float, path: str):
+    def __init__(self, position: list, status: bool, playerSpeed: float, path: str):
         super().__init__()
         self._path = path
         self._image = scaler(image.load(self._path), 150, 130)
