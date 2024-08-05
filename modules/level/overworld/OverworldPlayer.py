@@ -1,4 +1,4 @@
-from pygame import sprite, image
+from pygame import sprite, image, math
 
 
 class OverworldPlayer(sprite.Sprite):
@@ -33,6 +33,8 @@ class OverworldPlayer(sprite.Sprite):
     @rect.setter
     def rect(self, newValue):
         self._rect = newValue
+
+
 
     # Instance methods
     def update(self):
