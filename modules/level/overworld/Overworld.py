@@ -148,7 +148,7 @@ class Overworld:
         if len(points) > 0:
             try:
                 pygame.draw.lines(self.displaySurface, "red", False, points, 6)
-            except:
+            finally:
                 pass
     def input(self):
         #Checks for the keyboard input and executes the appropriate action.
@@ -194,3 +194,4 @@ class Overworld:
         self.inputTimer()
         self.nodes.draw(self.displaySurface)
         self.player.draw(self.displaySurface)
+
