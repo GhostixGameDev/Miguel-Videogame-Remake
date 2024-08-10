@@ -1,4 +1,4 @@
-from Tile import *
+from modules.resources.tiles.Tile import *
 from modules.resources.util.Util import scaler
 from pygame import image
 class StaticTile(Tile):

@@ -1,4 +1,4 @@
-from Tile import *
+from modules.resources.tiles.Tile import *
 from modules.resources.util.Util import scaleList, importFolderSprites
 class AnimatedTile(Tile):
     def __init__(self, size: int, x: int, y: int, path: str):
