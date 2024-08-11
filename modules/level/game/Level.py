@@ -48,22 +48,22 @@ class Level:
         LuckyBlocksLayout = importCsvLayout(levelData["lucky_blocks"])
         decorationLayout = importCsvLayout(levelData["decoration"])
         #Background
-        self.__backgroundSprites = self.createTileGroup(backgroundLayout, "background")
+        self.__backgroundSprites = self._createTileGroup_(backgroundLayout, "background")
         #boxes
-        self.__boxesSprites = self.createTileGroup(boxesLayout, "boxes")
+        self.__boxesSprites = self._createTileGroup_(boxesLayout, "boxes")
         #coins
-        self.__coinsSprites = self.createTileGroup(coinsLayout, "coins")
+        self.__coinsSprites = self._createTileGroup_(coinsLayout, "coins")
         #Enemies
-        self.__EnemySprites = self.createTileGroup(enemiesLayout, "enemies")
-        self.__luckyBlocksSprites = self.createTileGroup(LuckyBlocksLayout, "lucky_blocks")
+        self.__EnemySprites = self._createTileGroup_(enemiesLayout, "enemies")
+        self.__luckyBlocksSprites = self._createTileGroup_(LuckyBlocksLayout, "lucky_blocks")
         #Decoration
-        self.__decorationSprites = self.createTileGroup(decorationLayout, "decoration")
+        self.__decorationSprites = self._createTileGroup_(decorationLayout, "decoration")
 
         #Constraints
         constraintLayout = importCsvLayout(levelData["constraints"])
-        self.__constraintSprites = self.createTileGroup(constraintLayout, "constraints")
+        self.__constraintSprites = self._createTileGroup_(constraintLayout, "constraints")
         constraintLayout2 = importCsvLayout(levelData["constraints2"])
-        self.__constraintSprites2 = self.createTileGroup(constraintLayout2, "constraints2")
+        self.__constraintSprites2 = self._createTileGroup_(constraintLayout2, "constraints2")
 
     #Getters and setters
     @property
