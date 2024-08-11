@@ -179,10 +179,10 @@ class Level:
         self.__JoJoText = newValue
 
     @property
-    def JoJoText2(self):
+    def JoJoTextOverlain(self):
         return self.__JoJoTextOverlain
 
-    @JoJoText2.setter
+    @JoJoTextOverlain.setter
     def JoJoText2(self, newValue):
         self.__JoJoTextOverlain = newValue
 
