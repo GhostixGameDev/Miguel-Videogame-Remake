@@ -53,235 +53,235 @@ class Player(pygame.sprite.Sprite):
     # Class constructor
     def __init__(self, position: list, surface: pygame.surface, path: str, jumpParticles, updatedLives: int):
         super().__init__()
-        self.__lives = updatedLives
-        self.__animations = importCharacterAssets(path)
-        self.__dustParticles = importDustParticles()
-        self.__dustState = "land"
-        self.__dustFrameIndex = 0
-        self.__dustAnimationSpeed = 0.15
-        self.__frameIndex = 0
-        self.__jumpParticles = jumpParticles
-        self.__animationSpeed = 0.15
-        self.__displaySurface = surface
-        self.__sprite = self.__animations["idle"][self.frameIndex]
-        self.__rect = self.__sprite.get_rect(topleft=position)
-        self.__direction = pygame.math.Vector2(0, 0)
-        self.__speed = 4 * scale
-        self.__gravity = 0.8 * scale
-        self.__jumpSpeed = -16 * scale
-        self.__onGround = True
-        self.__isInvincible = False
-        self.__invincibilityDuration = 2000
-        self.__hurtTime = 0
-        self.__forceMove = False
-        self.__collisionRect = pygame.Rect(self.rect.topleft, (self.rect.width - 5, self.rect.height))
+        self._lives = updatedLives
+        self._animations = importCharacterAssets(path)
+        self._dustParticles = importDustParticles()
+        self._dustState = "land"
+        self._dustFrameIndex = 0
+        self._dustAnimationSpeed = 0.15
+        self._frameIndex = 0
+        self._jumpParticles = jumpParticles
+        self._animationSpeed = 0.15
+        self._displaySurface = surface
+        self._sprite = self._animations["idle"][self.frameIndex]
+        self._rect = self._sprite.get_rect(topleft=position)
+        self._direction = pygame.math.Vector2(0, 0)
+        self._speed = 4 * scale
+        self._gravity = 0.8 * scale
+        self._jumpSpeed = -16 * scale
+        self._onGround = True
+        self._isInvincible = False
+        self._invincibilityDuration = 2000
+        self._hurtTime = 0
+        self._forceMove = False
+        self._collisionRect = pygame.Rect(self.rect.topleft, (self.rect.width - 5, self.rect.height))
         # audio
-        self.__jumpSound = pygame.mixer.Sound("../assets/sounds/jump.ogg")
+        self._jumpSound = pygame.mixer.Sound("../assets/sounds/jump.ogg")
         # Anim States
-        self.__animationState = "idle"
-        self.__facingRight = True
+        self._animationState = "idle"
+        self._facingRight = True
 
     # Getters and Setters
 
     @property
     def lives(self):
-        return self.__lives
+        return self._lives
 
     @lives.setter
     def lives(self, newValue):
-        self.__lives = newValue
+        self._lives = newValue
 
     @property
     def animations(self):
-        return self.__animations
+        return self._animations
 
     @animations.setter
     def animations(self, newValue):
-        self.__animations = newValue
+        self._animations = newValue
 
     @property
     def dustParticles(self):
-        return self.__dustParticles
+        return self._dustParticles
 
     @dustParticles.setter
     def dustParticles(self, newValue):
-        self.__dustParticles = newValue
+        self._dustParticles = newValue
 
     @property
     def dustState(self):
-        return self.__dustState
+        return self._dustState
 
     @dustState.setter
     def dustState(self, newValue):
-        self.__dustState = newValue
+        self._dustState = newValue
 
     @property
     def dustFrameIndex(self):
-        return self.__dustFrameIndex
+        return self._dustFrameIndex
 
     @dustFrameIndex.setter
     def dustFrameIndex(self, newValue):
-        self.__dustFrameIndex = newValue
+        self._dustFrameIndex = newValue
 
     @property
     def dustAnimationSpeed(self):
-        return self.__dustAnimationSpeed
+        return self._dustAnimationSpeed
 
     @dustAnimationSpeed.setter
     def dustAnimationSpeed(self, newValue):
-        self.__dustAnimationSpeed = newValue
+        self._dustAnimationSpeed = newValue
 
     @property
     def frameIndex(self):
-        return self.__frameIndex
+        return self._frameIndex
 
     @frameIndex.setter
     def frameIndex(self, newValue):
-        self.__frameIndex = newValue
+        self._frameIndex = newValue
 
     @property
     def jumpParticles(self):
-        return self.__jumpParticles
+        return self._jumpParticles
 
     @jumpParticles.setter
     def jumpParticles(self, newValue):
-        self.__jumpParticles = newValue
+        self._jumpParticles = newValue
 
     @property
     def animationSpeed(self):
-        return self.__animationSpeed
+        return self._animationSpeed
 
     @animationSpeed.setter
     def animationSpeed(self, newValue):
-        self.__animationSpeed = newValue
+        self._animationSpeed = newValue
 
     @property
     def displaySurface(self):
-        return self.__displaySurface
+        return self._displaySurface
 
     @displaySurface.setter
     def displaySurface(self, newValue):
-        self.__displaySurface = newValue
+        self._displaySurface = newValue
 
     @property
     def sprite(self):
-        return self.__sprite
+        return self._sprite
 
     @sprite.setter
     def sprite(self, newValue):
-        self.__sprite = newValue
+        self._sprite = newValue
 
     @property
     def rect(self):
-        return self.__rect
+        return self._rect
 
     @rect.setter
     def rect(self, newValue):
-        self.__rect = newValue
+        self._rect = newValue
 
     @property
     def direction(self):
-        return self.__direction
+        return self._direction
 
     @direction.setter
     def direction(self, newValue):
-        self.__direction = newValue
+        self._direction = newValue
 
     @property
     def speed(self):
-        return self.__speed
+        return self._speed
 
     @speed.setter
     def speed(self, newValue):
-        self.__speed = newValue
+        self._speed = newValue
 
     @property
     def gravity(self):
-        return self.__gravity
+        return self._gravity
 
     @gravity.setter
     def gravity(self, newValue):
-        self.__gravity = newValue
+        self._gravity = newValue
 
     @property
     def jumpSpeed(self):
-        return self.__jumpSpeed
+        return self._jumpSpeed
 
     @jumpSpeed.setter
     def jumpSpeed(self, newValue):
-        self.__jumpSpeed = newValue
+        self._jumpSpeed = newValue
 
     @property
     def onGround(self):
-        return self.__onGround
+        return self._onGround
 
     @onGround.setter
     def onGround(self, newValue):
-        self.__onGround = newValue
+        self._onGround = newValue
 
     @property
     def isInvincible(self):
-        return self.__isInvincible
+        return self._isInvincible
 
     @isInvincible.setter
     def isInvincible(self, newValue):
-        self.__isInvincible = newValue
+        self._isInvincible = newValue
 
     @property
     def invincibilityDuration(self):
-        return self.__invincibilityDuration
+        return self._invincibilityDuration
 
     @invincibilityDuration.setter
     def invincibilityDuration(self, newValue):
-        self.__invincibilityDuration = newValue
+        self._invincibilityDuration = newValue
 
     @property
     def hurtTime(self):
-        return self.__hurtTime
+        return self._hurtTime
 
     @hurtTime.setter
     def hurtTime(self, newValue):
-        self.__hurtTime = newValue
+        self._hurtTime = newValue
 
     @property
     def forceMove(self):
-        return self.__forceMove
+        return self._forceMove
 
     @forceMove.setter
     def forceMove(self, newValue):
-        self.__forceMove = newValue
+        self._forceMove = newValue
 
     @property
     def collisionRect(self):
-        return self.__collisionRect
+        return self._collisionRect
 
     @collisionRect.setter
     def collisionRect(self, newValue):
-        self.__collisionRect = newValue
+        self._collisionRect = newValue
 
     @property
     def jumpSound(self):
-        return self.__jumpSound
+        return self._jumpSound
 
     @jumpSound.setter
     def jumpSound(self, newValue):
-        self.__jumpSound = newValue
+        self._jumpSound = newValue
 
     @property
     def animationState(self):
-        return self.__animationState
+        return self._animationState
 
     @animationState.setter
     def animationState(self, newValue):
-        self.__animationState = newValue
+        self._animationState = newValue
 
     @property
     def facingRight(self):
-        return self.__facingRight
+        return self._facingRight
 
     @facingRight.setter
     def facingRight(self, newValue):
-        self.__facingRight = newValue
+        self._facingRight = newValue
 
     # Instance methods
     def animateDust(self):
