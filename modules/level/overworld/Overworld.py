@@ -22,8 +22,8 @@ class Overworld:
         self._speed = 12
         self._moving = False
         #Assets
-        self.setupNodes()
-        self.setupPlayer()
+        self._setupNodes_()
+        self._setupPlayer_()
 
         #timers
         self._startTime = pygame.time.get_ticks()
@@ -129,7 +129,7 @@ class Overworld:
 
 
     #Instance methods
-    def setupNodes(self):
+    def _setupNodes_(self):
         # Creates the levels in the menu
         for index, nodeData in enumerate(overworldInfo.values()):
             if index <= self.maxLevel:
@@ -137,11 +137,11 @@ class Overworld:
             else:
                 nodeSprite = Node(nodeData["nodePos"], False, self.speed, nodeData["nodeAssets"])
             self.nodes.add(nodeSprite)
-    def setupPlayer(self):
+    def _setupPlayer_(self):
         #Creates the player.
         playerSprite = OverworldPlayer(self.nodes.sprites()[self.currentLevel].rect.center)
         self.player.add(playerSprite)
-    def drawLines(self):
+    def _drawLines_(self):
         #Draws the path between unlocked levels
         points=[]
         points=[node["nodePos"] for index,node in enumerate(overworldInfo.values()) if index<=self.maxLevel]
@@ -150,7 +150,7 @@ class Overworld:
                 pygame.draw.lines(self.displaySurface, "red", False, points, 6)
             finally:
                 pass
-    def input(self):
+    def _input_(self):
         #Checks for the keyboard input and executes the appropriate action.
         key = pygame.key.get_pressed()
         if not self.moving and self.allowInput:
@@ -186,11 +186,11 @@ class Overworld:
     def run(self):
         #Events that happen every frame.
         self.displaySurface.fill("#008c96")
-        self.input()
+        self._input_()
         self.nodes.update()
         self.player.update()
         self.updatePlayerPos()
-        self.drawLines()
+        self._drawLines_()
         self.inputTimer()
         self.nodes.draw(self.displaySurface)
         self.player.draw(self.displaySurface)
