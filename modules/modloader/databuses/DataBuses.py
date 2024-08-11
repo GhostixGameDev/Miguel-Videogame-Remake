@@ -2,6 +2,7 @@ from modules.npc.enemy import Enemy
 from modules.player.Player import Player
 from modules.resources.particle import Particle
 from modules.resources.particle.custom import JoJoParticle
+from modules.resources.tiles.Tile import Tile
 from modules.resources.tiles.StaticTile import StaticTile
 from modules.resources.tiles.AnimatedTile import AnimatedTile
 from modules.resources.tiles.custom.static.LuckyBlock import LuckyBlock
@@ -12,7 +13,7 @@ from dataclasses import dataclass
 @dataclass(order=True)
 class DataBuses:
     def __init__(self):
-        self.__GameTiles = {"vanilla:static": StaticTile, "vanilla:animated": AnimatedTile, "vanilla:lucky_block": LuckyBlock, "vanilla:coin": Coin}
+        self.__GameTiles = {"vanilla:generic": Tile, "vanilla:static": StaticTile, "vanilla:animated": AnimatedTile, "vanilla:lucky_block": LuckyBlock, "vanilla:coin": Coin}
         self.__GameEnemies = {"vanilla:generic": Enemy}
         self.__GameParticles = {"vanilla:generic": Particle, "vanilla:jojo_particle": JoJoParticle}
         self.__PlayerController = {"player": Player}
