@@ -69,7 +69,7 @@ class JoJoParticle(font.Font):
         self._yShake = newValue
 
     #Instance methods
-    def shake(self):
+    def _shake_(self):
         #Makes the letters shake like in the series.
         self.xShake = random() * 2.5
         self.xShake -= random() * 1.5
@@ -93,4 +93,4 @@ class JoJoParticle(font.Font):
         #Events that have to run every frame.
         self.x += xShift
         self.y += yShift
-        self.shake()
+        self._shake_()
